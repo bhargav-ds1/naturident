@@ -3,6 +3,6 @@ Datasets/*
 __pycache__/
 models/*
 *.pickle
-
+docker-compose.yml
 !Datasets/.gitkeep
 !models/.gitkeep

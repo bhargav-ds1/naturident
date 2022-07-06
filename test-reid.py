@@ -32,26 +32,8 @@ if torch.cuda.is_available():
 else:
     print("Using CPU")
 
-def runcmd(cmd, verbose = False, *args, **kwargs):
-
-    process = subprocess.Popen(
-        cmd,
-        stdout = subprocess.PIPE,
-        stderr = subprocess.PIPE,
-        text = True,
-        shell = True
-    )
-    std_out, std_err = process.communicate()
-    if verbose:
-        print(std_out.strip(), std_err)
-    pass
-
 model_path = MODEL_DIR_PATH + ML_MODEL_NAME
 model_name = 'pcb_p4'
-if os.path.exists(model_path):
-    runcmd("wget https://owncloud.fraunhofer.de/index.php/s/lkPsFHcmXJqnLuu/download -P ./models/",verbose=True)
-    runcmd("unzip ./models/naturident_example.zip 'models/*' -d './models")
-    runcmd("rm ./models/naturident_example.zip")
 
 extractor = FeatureExtractor(
     model_name=model_name,
@@ -107,9 +89,6 @@ class PalletFeetImage:
 
     def __repr__(self):
         return repr(f"PalletBlock: (pf_id: {self.pf_id}, cam_id: {self.cam_id}, frame_ctr: {self.frame_ctr})")
-
-if not os.path.exists(DATASET_PATH[DATASET_NAME]):
-    runcmd("wget https://zenodo.org/record/6358607/files/pallet-block-32965.rar?download=1 -P ./Datasets",verbose=True)
 
 
 if DATASET_NAME == "dataset2-ids32965":

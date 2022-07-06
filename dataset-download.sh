@@ -3,7 +3,7 @@
 file1="./models/model.pth.tar"
 
 if [ ! -f "$file1" ] ; then
-  wget https://owncloud.fraunhofer.de/index.php/s/lkPsFHcmXJqnLuu/download -P ./models/
+  wget https://owncloud.fraunhofer.de/index.php/s/lkPsFHcmXJqnLuu/download -P ./models/naturident_example.zip
   unzip ./models/naturident_example.zip 'models/*' -d './models'
   rm ./models/naturident_example.zip
 
