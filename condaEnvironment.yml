@@ -1,0 +1,8 @@
+name: naturidentOnPallets
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pandas
+  - Pillow
+  - numpy==1.19.2

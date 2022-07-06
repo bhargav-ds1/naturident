@@ -1,0 +1,8 @@
+Datasets/*
+.idea/
+__pycache__/
+models/*
+*.pickle
+
+!Datasets
+!models
