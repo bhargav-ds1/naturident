@@ -4,5 +4,5 @@ __pycache__/
 models/*
 *.pickle
 
-!Datasets
-!models
+!Datasets/.gitkeep
+!models/.gitkeep
