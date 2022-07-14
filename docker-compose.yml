@@ -1,9 +1,21 @@
 version: '3'
 services:
-  example:
-    image: naturident
+  docker-setup:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: naturident:latest # provide valid image name which is build using corresponding Dockerfile in the project.
     volumes:
-      - ./:/naturident
+      #map the datasets and models folders to the Datasets and models folders in docker container
+      # if a folder containing more than one dataset is mapped to Datasets folder all the images under Datasets folder are treated as one Dataset.
+      - D:/pallet-feet-32965:/naturident/Datasets/pallet-block-32965
+      - ./models:/naturident/models
     command:
-      - sh dataset-download.sh
-      - python test-reid-python.py
+      - python
+      - test-reid.py
+
+      #run this script to download the pallet-block-32965 dataset and the weights of pcb_p4 model fine tuned on the pallet-block-32965 dataset.
+      # if the script is run in the docker container then the dataset is downloaded everytime you run docker-compose up
+      # alternatively run it in your local and map the corresponding folders using the volumes tag above.
+      #- sh download-pallet-block-32965-dataset&trainedPCB_P4modelWeights
+

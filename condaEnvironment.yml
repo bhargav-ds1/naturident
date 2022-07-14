@@ -6,3 +6,4 @@ dependencies:
   - pandas
   - Pillow
   - numpy==1.19.2
+  - tqdm==4.64.0

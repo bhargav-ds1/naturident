@@ -4,12 +4,9 @@ CMD nvidia-smi
 
 FROM continuumio/anaconda3
 WORKDIR /naturident
-RUN sudo apt update && sudo apt install --assume-yes unrar
-COPY ./* .
-
-RUN conda env create -f condaEnvironment.yml && conda init bash && echo "conda activate naturidentOnPallets" > ~/.bashrc
+COPY . .
 RUN pip install -r requirements.txt
 RUN conda install -c conda-forge faiss-gpu
 
-RUN sh dataset-download.sh
-RUN python test-reid.py
+RUN conda env create -f condaEnvironment.yml && conda init bash && echo "conda activate naturidentOnPallets" > ~/.bashrc
+#RUN python test-reid.py

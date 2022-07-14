@@ -1,11 +1,7 @@
-Datasets/*
 .idea/
 __pycache__/
-models/*
 *.pickle
 .git
 .gitignore
-.docker-compose.yml
 *.md
-!Datasets/.gitkeep
-!models/.gitkeep
+
