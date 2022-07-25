@@ -19,6 +19,7 @@ Or, put the pallet-block-32965 dataset and the trained model in the correspondin
 ```
 
 Alternatively run using the docker file
+- map your local folder as a volume in the docker-compose.yml by changing the D:/pallet-feet-32965 to a folder of your local and run
 ```console
     docker-compose up
 ```
